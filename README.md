@@ -2,8 +2,9 @@
 
 ## Description
 
-Simple Spring App created as a part of my Spring learning.
-As a theme I choosed town hall managment system, focused on forms and applications.
+Simple Spring Boot web app created as part of my Spring learning.
+The theme is a town hall management system focused on forms and applications
+(the UI and sample forms are in Polish).
 
 ### Used technologies
 
@@ -19,13 +20,29 @@ As a theme I choosed town hall managment system, focused on forms and applicatio
 
 - creating new users
 - managing user roles
-- creting, editing and deleting new forms
-- filling, editing, deleting and submiting applications
-- checking applications by clerks, and accepting it or refusing
-- creting pdf of applications and forms
+- creating, editing and deleting forms
+- filling in, editing, deleting and submitting applications
+- reviewing applications by clerks, who can accept or reject them
+- generating PDFs of applications and forms
 - simple statistics
 
-### Preview
+## Build and run
+
+Requirements: Java 11 and a running PostgreSQL server. Maven is provided through the wrapper.
+
+Database connection settings are in `src/main/resources/application.properties`
+(`spring.datasource.*` for the app and `spring.flyway.*` for migrations). By default they point at
+a local PostgreSQL on port 5432; adjust the database names and credentials to your setup.
+
+```bash
+./mvnw spring-boot:run      # run the app (Windows: mvnw.cmd spring-boot:run)
+./mvnw package              # build a jar into target/
+```
+
+On the first visit to the home page with an empty `users` table, the app seeds a test user, a
+test admin/clerk account and a sample form (see `FirstRunService.java`).
+
+## Preview
 
 ![1](https://user-images.githubusercontent.com/54181425/131108599-50896955-6c29-4df6-933c-7bbc101df882.png)
 ![2](https://user-images.githubusercontent.com/54181425/131108600-c7c908b6-fb5f-4ff1-bf9c-007e98d031a3.png)

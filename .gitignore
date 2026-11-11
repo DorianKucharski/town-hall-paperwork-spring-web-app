@@ -31,3 +31,7 @@ build/
 .vscode/
 
 /Images
+
+### OS ###
+.DS_Store
+Thumbs.db
